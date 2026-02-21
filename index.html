@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ring Muscle Up — The Complete Training Guide | The Bodyweight Gym</title>
+<meta name="description" content="Master the strict ring muscle up with this comprehensive 6-level progression guide. From zero to hero — no kipping, no shortcuts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-deep: #0a0a0a;
+    --bg-card: #141414;
+    --bg-elevated: #1a1a1a;
+    --text-primary: #f0ede8;
+    --text-secondary: #8a857d;
+    --text-muted: #5a5650;
+    --accent: #c8a55c;
+    --accent-glow: #d4b76a;
+    --accent-dark: #9e7f3a;
+    --red: #c8553d;
+    --teal: #3a8a7c;
+    --border: rgba(255,255,255,0.06);
+    --heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    --body: 'Source Sans 3', -apple-system, sans-serif;
+    --radius: 10px;
+  }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--body);
+    font-weight: 400;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== UTILITY ===== */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  .text-center { text-align: center; }
+  .text-accent { color: var(--accent); }
+  .text-secondary { color: var(--text-secondary); }
+  .text-muted { color: var(--text-muted); }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+  }
+  nav .container {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-brand {
+    font-family: var(--heading); font-weight: 800; font-size: 0.85em;
+    text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-primary);
+    text-decoration: none;
+  }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: var(--bg-deep);
+    font-family: var(--heading); font-weight: 700;
+    font-size: 0.82em; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 10px 24px; border-radius: 6px; text-decoration: none;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background: var(--accent-glow); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(200,165,92,0.3); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    position: relative; padding: 120px 24px 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.3; filter: grayscale(40%);
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 60%, var(--bg-deep) 100%);
+  }
+
+  .hero-content { position: relative; z-index: 1; text-align: center; max-width: 900px; }
+  
+  .hero-eyebrow {
+    font-family: var(--heading);
+    font-size: 0.78em; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.25em; color: var(--accent); margin-bottom: 20px;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; width: 40px; height: 1px; background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: var(--heading); font-size: clamp(3em, 8vw, 6.5em);
+    font-weight: 800; line-height: 1.0; letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+
+  .hero-sub {
+    font-family: var(--body);
+    font-size: 1.15em; color: var(--text-secondary); max-width: 600px;
+    margin: 0 auto 40px; line-height: 1.7;
+  }
+
+  .hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--bg-deep);
+    font-family: var(--heading); font-weight: 700;
+    font-size: 1em; padding: 16px 40px; border-radius: 8px;
+    text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em;
+    transition: all 0.3s; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--accent-glow); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,165,92,0.25); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; color: var(--text-primary);
+    font-family: var(--heading); font-weight: 500;
+    font-size: 1em; padding: 16px 40px; border-radius: 8px;
+    text-decoration: none; border: 1.5px solid var(--border);
+    transition: all 0.3s; cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-price {
+    margin-top: 24px; font-size: 0.85em; color: var(--text-muted);
+  }
+  .hero-price strong { color: var(--text-primary); font-size: 1.8em; font-weight: 700; vertical-align: middle; }
+
+  /* ===== SOCIAL PROOF ===== */
+  .social-proof {
+    padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .proof-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px; text-align: center;
+  }
+  .proof-stat .stat-number {
+    font-family: var(--heading); font-size: 2.5em; font-weight: 800;
+    color: var(--accent); line-height: 1;
+  }
+  .proof-stat .stat-label {
+    font-family: var(--body);
+    font-size: 0.82em; color: var(--text-muted); margin-top: 4px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  /* ===== SECTION STYLE ===== */
+  section { padding: 100px 0; }
+  section h2 {
+    font-family: var(--heading); font-size: clamp(2em, 4vw, 3.2em);
+    font-weight: 800; line-height: 1.15; margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  section h2 em { font-style: italic; color: var(--accent); }
+  .section-lead {
+    font-family: var(--body);
+    font-size: 1.1em; color: var(--text-secondary); max-width: 600px;
+    margin-bottom: 50px; line-height: 1.7;
+  }
+
+  /* ===== WHAT'S INSIDE ===== */
+  .features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px; margin-top: 40px;
+  }
+  .feature-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px;
+    transition: border-color 0.3s;
+  }
+  .feature-card:hover { border-color: rgba(200,165,92,0.3); }
+  .feature-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: rgba(200,165,92,0.1); border: 1px solid rgba(200,165,92,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3em; margin-bottom: 16px;
+  }
+  .feature-card h3 {
+    font-family: var(--heading); font-size: 1.1em; font-weight: 700; margin-bottom: 8px;
+  }
+  .feature-card p { font-size: 0.92em; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ===== ANNOTATED SEQUENCE ===== */
+  .sequence-section { padding: 80px 0; }
+  .sequence-strip {
+    display: flex; gap: 4px; margin-top: 40px;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; padding-bottom: 10px;
+  }
+  .sequence-strip::-webkit-scrollbar { display: none; }
+  .sequence-strip img {
+    height: 280px; width: auto; border-radius: 6px;
+    flex-shrink: 0; filter: grayscale(10%);
+    transition: filter 0.3s;
+  }
+  .sequence-strip img:hover { filter: grayscale(0%); }
+
+  /* ===== LEVELS PREVIEW ===== */
+  .levels-section { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .levels-track {
+    display: flex; gap: 0; margin-top: 50px; overflow-x: auto;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    padding-bottom: 20px;
+  }
+  .levels-track::-webkit-scrollbar { display: none; }
+
+  .level-card {
+    min-width: 220px; flex: 1; padding: 28px 24px;
+    border-right: 1px solid var(--border); position: relative;
+  }
+  .level-card:last-child { border-right: none; }
+  .level-num {
+    font-family: var(--heading); font-size: 3em; line-height: 1;
+    color: rgba(200,165,92,0.15); font-weight: 800; margin-bottom: 8px;
+  }
+  .level-card h4 { font-family: var(--heading); font-size: 0.95em; font-weight: 700; margin-bottom: 6px; }
+  .level-card p { font-size: 0.82em; color: var(--text-muted); line-height: 1.5; }
+
+  /* ===== IMAGE GALLERY ===== */
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 4px; margin-top: 50px; border-radius: var(--radius); overflow: hidden;
+  }
+  .gallery-grid img {
+    width: 100%; aspect-ratio: 1; object-fit: cover;
+    filter: grayscale(20%); transition: all 0.4s;
+  }
+  .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.03); }
+
+  /* ===== APPROACH ===== */
+  .approach-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center; margin-top: 50px;
+  }
+  .approach-img {
+    border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .approach-img img { width: 100%; display: block; filter: grayscale(20%); }
+  .approach-points { list-style: none; }
+  .approach-points li {
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .approach-points li:last-child { border-bottom: none; }
+  .approach-num {
+    font-family: var(--heading); font-size: 1.6em; color: var(--accent);
+    line-height: 1; flex-shrink: 0; width: 32px; font-weight: 800;
+  }
+  .approach-text h4 { font-family: var(--heading); font-size: 0.95em; font-weight: 700; margin-bottom: 2px; }
+  .approach-text p { font-size: 0.88em; color: var(--text-secondary); }
+
+  /* ===== WIDE IMAGE BREAK ===== */
+  .wide-image-break {
+    width: 100%; overflow: hidden; position: relative;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .wide-image-break img {
+    width: 100%; display: block; filter: grayscale(20%);
+    opacity: 0.7;
+  }
+
+  /* ===== CALLOUT BANNER ===== */
+  .callout-banner {
+    background: linear-gradient(135deg, rgba(200,165,92,0.08) 0%, rgba(200,165,92,0.02) 100%);
+    border: 1px solid rgba(200,165,92,0.15);
+    border-radius: var(--radius); padding: 48px;
+    text-align: center; margin: 60px 0;
+  }
+  .callout-banner blockquote {
+    font-family: var(--heading); font-size: 1.5em; font-style: italic;
+    font-weight: 500; line-height: 1.4; max-width: 700px; margin: 0 auto 16px;
+    color: var(--text-primary);
+  }
+  .callout-banner cite { font-style: normal; font-size: 0.85em; color: var(--text-muted); }
+
+  /* ===== PRICING ===== */
+  .pricing-section { background: var(--bg-deep); }
+  .pricing-card {
+    background: var(--bg-card); border: 2px solid var(--accent);
+    border-radius: 16px; padding: 48px; max-width: 560px;
+    margin: 50px auto 0; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .pricing-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent-dark), var(--accent), var(--accent-dark));
+  }
+  .pricing-badge {
+    display: inline-block; background: var(--accent); color: var(--bg-deep);
+    font-family: var(--heading);
+    font-size: 0.7em; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.12em; padding: 6px 16px; border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .pricing-name { font-family: var(--heading); font-size: 1.8em; font-weight: 700; margin-bottom: 8px; }
+  .pricing-price {
+    font-family: var(--heading);
+    font-size: 3.5em; font-weight: 800; line-height: 1; margin: 16px 0;
+    color: var(--text-primary);
+  }
+  .pricing-price span { font-size: 0.4em; color: var(--text-muted); font-weight: 400; vertical-align: top; }
+  .pricing-note { font-size: 0.88em; color: var(--text-muted); margin-bottom: 28px; }
+  .pricing-features { list-style: none; text-align: left; margin-bottom: 32px; }
+  .pricing-features li {
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 0.92em; display: flex; align-items: center; gap: 12px;
+  }
+  .pricing-features li::before {
+    content: '✓'; color: var(--accent); font-weight: 700; font-size: 1.1em;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 700px; margin: 50px auto 0; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-question {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0; cursor: pointer;
+    font-family: var(--heading); font-weight: 600; font-size: 1.02em;
+    background: none; border: none; color: var(--text-primary);
+    width: 100%; text-align: left;
+  }
+  .faq-question:hover { color: var(--accent); }
+  .faq-question::after { content: '+'; font-size: 1.4em; color: var(--text-muted); transition: transform 0.3s; }
+  .faq-item.open .faq-question::after { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 20px; }
+  .faq-answer p { font-size: 0.92em; color: var(--text-secondary); line-height: 1.7; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 60px 0 40px; border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  footer .footer-brand {
+    font-family: var(--heading);
+    font-weight: 800; font-size: 0.8em; text-transform: uppercase;
+    letter-spacing: 0.2em; color: var(--text-muted); margin-bottom: 12px;
+  }
+  footer p { font-size: 0.82em; color: var(--text-muted); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .approach-grid { grid-template-columns: 1fr; gap: 30px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-card { padding: 32px 24px; }
+    section { padding: 60px 0; }
+    .hero { padding: 100px 20px 60px; }
+    .sequence-strip img { height: 200px; }
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-in {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  /* Grain overlay */
+  body::after {
+    content: ''; position: fixed; inset: 0; z-index: 9999;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    opacity: 0.4;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="#" class="nav-brand">The Bodyweight Gym</a>
+    <a href="#pricing" class="nav-cta">Get the Guide</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="images/hero.jpg" alt="Ring muscle up demonstration">
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow animate-in">The Complete Training Guide</div>
+    <h1 class="animate-in delay-1">The Ring<br><em>Muscle Up</em></h1>
+    <p class="hero-sub animate-in delay-2">Six levels of progressive training to take you from your first ring hang to a clean, strict muscle up. No kipping. No shortcuts. Just strength.</p>
+    <div class="hero-cta-group animate-in delay-3">
+      <a href="#pricing" class="btn-primary">Get Instant Access →</a>
+      <a href="#whats-inside" class="btn-outline">See What's Inside</a>
+    </div>
+    <p class="hero-price animate-in delay-4"><strong>$29</strong> — One-time purchase. Yours forever.</p>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<div class="social-proof">
+  <div class="container">
+    <div class="proof-grid">
+      <div class="proof-stat"><div class="stat-number">6</div><div class="stat-label">Progressive Levels</div></div>
+      <div class="proof-stat"><div class="stat-number">20+</div><div class="stat-label">Exercise Progressions</div></div>
+      <div class="proof-stat"><div class="stat-number">15</div><div class="stat-label">Video Demonstrations</div></div>
+      <div class="proof-stat"><div class="stat-number">31</div><div class="stat-label">Pages of Instruction</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT'S INSIDE -->
+<section id="whats-inside">
+  <div class="container">
+    <h2 class="text-center">Everything You Need<br>to <em>Earn</em> Your Muscle Up</h2>
+    <p class="section-lead text-center" style="margin-left:auto; margin-right:auto;">This isn't a quick-fix tutorial. It's a structured, progressive programme built on the same principles that develop competitive gymnasts.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📐</div>
+        <h3>Benchmarking System</h3>
+        <p>Start at exactly the right level for your current strength and mobility. No wasted time on exercises that are too easy or too hard.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Graduation Tests</h3>
+        <p>Clear, measurable criteria for when to advance. Progress with confidence knowing your body is ready for the next challenge.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📹</div>
+        <h3>Video for Every Exercise</h3>
+        <p>Every single exercise in the programme includes a linked video demonstration so you can see exactly what good form looks like.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Periodisation Built In</h3>
+        <p>Loading, deloading, and progression blocks are mapped out. Just follow the programme and let your body adapt.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Injury Prevention Focus</h3>
+        <p>Every level includes mobility work and recovery guidance. Connective tissue adaptation timelines keep you progressing safely.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Quick Reference Cheat Sheet</h3>
+        <p>All six levels summarised on a single page. Print it, stick it on your gym wall, and always know what's next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE GALLERY — Real photos from the guide -->
+<section style="padding: 0;">
+  <div class="gallery-grid">
+    <img src="images/gallery-1.jpg" alt="Ring hang position" loading="lazy">
+    <img src="images/gallery-2.jpg" alt="Ring strength exercise" loading="lazy">
+    <img src="images/gallery-3.jpg" alt="Pull-up progression" loading="lazy">
+    <img src="images/gallery-4.jpg" alt="False grip pull-up" loading="lazy">
+    <img src="images/gallery-5.jpg" alt="Ring dip position" loading="lazy">
+    <img src="images/gallery-6.jpg" alt="Ring support hold" loading="lazy">
+  </div>
+</section>
+
+<!-- ANNOTATED MOVEMENT SEQUENCE -->
+<section class="sequence-section">
+  <div class="container">
+    <h2 class="text-center">See the <em>Progression</em></h2>
+    <p class="section-lead text-center" style="margin-left:auto; margin-right:auto;">Annotated movement breakdowns from the guide — every phase of the muscle up dissected and taught.</p>
+    <div class="sequence-strip">
+      <img src="images/annotated-1.jpg" alt="Muscle up phase 1 — pull and transition breakdown" loading="lazy">
+      <img src="images/annotated-2.jpg" alt="Muscle up phase 2 — transition and catch" loading="lazy">
+      <img src="images/annotated-3.jpg" alt="Muscle up phase 3 — press to support" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LEVELS PREVIEW -->
+<section class="levels-section">
+  <div class="container">
+    <h2 class="text-center">Six Levels.<br><em>One Destination.</em></h2>
+    <p class="section-lead text-center" style="margin-left:auto; margin-right:auto;">Each level builds on the last. No guesswork — just follow the progression.</p>
+
+    <div class="levels-track">
+      <div class="level-card">
+        <div class="level-num">01</div>
+        <h4>Foundation</h4>
+        <p>Wrist strength, shoulder mobility, basic ring hangs, rows, and push-ups.</p>
+      </div>
+      <div class="level-card">
+        <div class="level-num">02</div>
+        <h4>Pull &amp; Push</h4>
+        <p>Pull-ups, bar dips, false grip hangs, and your first transition rows.</p>
+      </div>
+      <div class="level-card">
+        <div class="level-num">03</div>
+        <h4>False Grip Integration</h4>
+        <p>False grip pull-ups, ring dips with turn out, and bent arm holds.</p>
+      </div>
+      <div class="level-card">
+        <div class="level-num">04</div>
+        <h4>Eccentric Control</h4>
+        <p>Tempo negative muscle ups — learning the full movement pattern under load.</p>
+      </div>
+      <div class="level-card">
+        <div class="level-num">05</div>
+        <h4>First Muscle Up</h4>
+        <p>Putting it all together. Your first clean, strict ring muscle up.</p>
+      </div>
+      <div class="level-card">
+        <div class="level-num">06</div>
+        <h4>Conditioning</h4>
+        <p>Building volume, endurance, and bulletproof technique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section>
+  <div class="container">
+    <div class="approach-grid">
+      <div>
+        <h2>Strict Movement.<br><em>No Compromise.</em></h2>
+        <p class="section-lead">This guide teaches the strict ring muscle up — minimal hip pike, no swinging, no kipping. The hard way is the right way.</p>
+        <ul class="approach-points">
+          <li>
+            <span class="approach-num">1</span>
+            <div class="approach-text">
+              <h4>Strength, Not Skill</h4>
+              <p>The muscle up isn't a trick — it's an expression of strength and mobility. Build both, and the movement follows.</p>
+            </div>
+          </li>
+          <li>
+            <span class="approach-num">2</span>
+            <div class="approach-text">
+              <h4>Respect Recovery</h4>
+              <p>Your muscles adapt in months. Your tendons take three times longer. This programme is designed around how your body actually heals.</p>
+            </div>
+          </li>
+          <li>
+            <span class="approach-num">3</span>
+            <div class="approach-text">
+              <h4>Earn Every Level</h4>
+              <p>Graduation tests ensure you don't skip ahead. The foundation you build at each level is what makes the next one possible.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="approach-img">
+        <img src="images/false-grip.jpg" alt="False grip close-up on gymnastic ring" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WIDE IMAGE BREAK -->
+<div class="wide-image-break">
+  <img src="images/wide-1.jpg" alt="Ring pull-up progression sequence" loading="lazy">
+</div>
+
+<!-- CALLOUT -->
+<div class="container">
+  <div class="callout-banner">
+    <blockquote>"Learning a muscle up from scratch may take 12 months or more. Patience is not optional — it's the strategy."</blockquote>
+    <cite>— From the guide</cite>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing-section">
+  <div class="container text-center">
+    <h2>Get the <em>Complete Guide</em></h2>
+    <p class="section-lead" style="margin-left:auto; margin-right:auto;">One purchase. Lifetime access. Start training today.</p>
+
+    <div class="pricing-card">
+      <div class="pricing-badge">Digital Download</div>
+      <div class="pricing-name">The Ring Muscle Up</div>
+      <div class="pricing-price"><span>$</span>29</div>
+      <p class="pricing-note">One-time payment — no subscriptions, no upsells</p>
+      <ul class="pricing-features">
+        <li>Complete 6-level progressive programme</li>
+        <li>31+ pages of detailed instruction</li>
+        <li>Video demonstration for every exercise</li>
+        <li>Benchmarking system to find your starting level</li>
+        <li>Periodisation and deload scheduling</li>
+        <li>Printable quick-reference cheat sheet</li>
+        <li>Lifetime access — download as many times as you want</li>
+      </ul>
+      <a href="#" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1.05em; padding: 18px;">Buy Now — Instant Download →</a>
+      <p style="margin-top: 16px; font-size: 0.82em; color: var(--text-muted);">PDF format. Works on any device.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <h2 class="text-center">Common <em>Questions</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">I can't do a single pull-up yet. Is this for me?</button>
+        <div class="faq-answer"><p>Yes. Level 1 starts with ring hangs, rows, and push-ups — the building blocks for your first pull-up. The programme is designed for complete beginners through to advanced athletes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How long will it take to get my first muscle up?</button>
+        <div class="faq-answer"><p>It depends entirely on your current strength and mobility. For someone starting from scratch, 12+ months is realistic. If you already have solid pull-ups and dips, it could be a few months. The guide includes benchmarking so you know exactly where you stand.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What equipment do I need?</button>
+        <div class="faq-answer"><p>Gymnastic rings (wood preferred), something to hang them from (pull-up bar or rig), parallel bars or dip station for Level 2, and chalk. That's it.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Is this a kipping muscle up programme?</button>
+        <div class="faq-answer"><p>No. This guide teaches the strict ring muscle up — minimal hip pike, no swinging, no kipping. Strict form is the foundation of long-term progress and injury prevention.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How often should I train?</button>
+        <div class="faq-answer"><p>No more than once every two days, with a deload week every five weeks. The programme includes specific guidance on loading, deloading, and when to advance.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding-bottom: 120px;">
+  <div class="container text-center">
+    <h2>Ready to <em>Start?</em></h2>
+    <p class="section-lead" style="margin-left:auto; margin-right:auto;">The muscle up won't come to you. Go earn it.</p>
+    <a href="#pricing" class="btn-primary" style="font-size: 1.1em; padding: 18px 48px;">Get the Guide — $29 →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-brand">The Bodyweight Gym</div>
+    <p>© 2025 The Bodyweight Gym. All rights reserved.</p>
+    <p style="margin-top: 8px;"><a href="#" style="color: var(--text-muted); text-decoration: underline;">Terms</a> · <a href="#" style="color: var(--text-muted); text-decoration: underline;">Privacy</a> · <a href="#" style="color: var(--text-muted); text-decoration: underline;">Contact</a></p>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animation = 'fadeUp 0.6s ease forwards';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.feature-card, .level-card, .approach-points li').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
