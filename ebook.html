@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ring Muscle Up — The Complete Training Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   PRINT-PERFECT EBOOK — 6×9" page size
+   Hit Ctrl+P / Cmd+P → Save as PDF
+   Set margins to "None" or "Minimum" in print dialog
+   ================================================================ */
+
+:root {
+  --navy: #0F172A;
+  --dark: #1E3A5F;
+  --accent: #2980B9;
+  --accent-light: #EBF5FB;
+  --accent-mid: #D4E6F1;
+  --text: #334155;
+  --sub: #64748B;
+  --light: #F8FAFC;
+  --border: #E2E8F0;
+  --warm: #D97706;
+  --syne: 'Plus Jakarta Sans', sans-serif;
+  --dm: 'Source Sans 3', sans-serif;
+}
+
+/* ===== PAGE SETUP ===== */
+@page {
+  size: 6in 9in;
+  margin: 0.7in 0.65in 0.6in 0.65in;
+  @bottom-center {
+    content: counter(page);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 8pt;
+    color: #94A3B8;
+  }
+}
+
+@page :first {
+  margin: 0;
+  @bottom-center { content: none; }
+}
+
+@page cover {
+  margin: 0;
+  @bottom-center { content: none; }
+}
+
+@page frontmatter {
+  @bottom-center { content: none; }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  font-family: var(--dm);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== SCREEN-ONLY WRAPPER ===== */
+@media screen {
+  body {
+    background: #e5e7eb;
+    padding: 2rem 0;
+  }
+  .page {
+    width: 6in;
+    min-height: 9in;
+    margin: 1rem auto;
+    background: white;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    padding: 0.7in 0.65in 0.6in 0.65in;
+    position: relative;
+  }
+  .page-cover {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-frontmatter { padding: 0.7in 0.65in 0.6in 0.65in; }
+}
+
+@media print {
+  body { background: white; padding: 0; }
+  .page {
+    page-break-after: always;
+    padding: 0;
+    min-height: auto;
+  }
+  .page:last-child { page-break-after: avoid; }
+  .page-cover { page: cover; }
+  .page-frontmatter { page: frontmatter; }
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4 { font-family: var(--syne); line-height: 1.15; }
+
+h1 { font-size: 22pt; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
+h2 { font-size: 14pt; font-weight: 700; color: var(--dark); margin-bottom: 6pt; }
+h3 { font-size: 11pt; font-weight: 700; color: var(--accent); margin-bottom: 4pt; }
+
+p { margin-bottom: 6pt; font-weight: 400; }
+p + p { margin-top: 0; }
+
+strong, b { font-weight: 500; color: var(--dark); }
+
+/* ===== COVER PAGE ===== */
+.cover-inner {
+  width: 6in;
+  height: 9in;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1in;
+  position: relative;
+}
+
+.cover-inner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba(41, 128, 185, 0.15);
+  border-radius: 50%;
+}
+
+.cover-inner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  border: 1px solid rgba(41, 128, 185, 0.08);
+  border-radius: 50%;
+}
+
+.cover-the { font-family: var(--syne); font-size: 18pt; font-weight: 800; color: white; letter-spacing: 0.1em; }
+.cover-title { font-family: var(--syne); font-size: 32pt; font-weight: 800; color: white; letter-spacing: -0.02em; margin: 4pt 0 12pt; line-height: 1.1; }
+.cover-line { width: 60px; height: 2px; background: var(--accent); margin: 0 auto 12pt; }
+.cover-subtitle { font-family: var(--syne); font-size: 11pt; font-weight: 600; color: var(--accent-mid); }
+.cover-tagline { font-family: var(--dm); font-size: 9pt; color: #94A3B8; margin-top: 8pt; font-weight: 400; font-style: italic; }
+.cover-brand-line { width: 120px; height: 1.5px; background: var(--accent); margin: 0 auto; position: absolute; bottom: 1.1in; }
+.cover-brand { font-family: var(--syne); font-size: 8pt; font-weight: 700; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; position: absolute; bottom: 0.7in; }
+
+/* ===== TITLE PAGE ===== */
+.title-page { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 7.7in; text-align: center; }
+.title-page h1 { font-size: 26pt; margin-bottom: 6pt; }
+.title-page .accent-rule { width: 80px; height: 2px; background: var(--accent); margin: 8pt auto; }
+.title-page .subtitle { font-family: var(--syne); font-size: 12pt; font-weight: 600; color: var(--accent); }
+.title-page .tagline { font-size: 10pt; color: var(--sub); font-weight: 400; margin-top: 4pt; }
+.title-page .author { font-family: var(--syne); font-weight: 600; font-size: 10pt; color: var(--text); margin-top: 1.5in; }
+.title-page .edition { font-size: 9pt; color: var(--sub); font-weight: 400; margin-top: 2pt; }
+
+/* ===== DISCLAIMER ===== */
+.disclaimer { padding-top: 0.8in; }
+.disclaimer h2 { color: var(--sub); font-size: 12pt; margin-bottom: 4pt; }
+.disclaimer-rule { width: 100%; height: 1px; background: var(--border); margin-bottom: 10pt; }
+.disclaimer p { font-size: 9pt; line-height: 1.55; color: var(--sub); }
+.disclaimer .copyright { text-align: center; margin-top: 0.6in; font-size: 7.5pt; color: #94A3B8; }
+
+/* ===== TABLE OF CONTENTS ===== */
+.toc h1 { margin-bottom: 6pt; }
+.toc-accent { width: 50px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 16pt; }
+.toc-item { font-size: 10pt; line-height: 2.2; color: var(--text); font-weight: 400; }
+.toc-sub { padding-left: 18pt; color: var(--sub); font-weight: 400; }
+
+/* ===== CHAPTER OPENER ===== */
+.chapter-opener {
+  background: var(--navy);
+  color: white;
+  padding: 14pt 16pt;
+  margin: 0 -0.65in;
+  width: calc(100% + 1.3in);
+  margin-bottom: 12pt;
+  position: relative;
+}
+.chapter-opener h1 {
+  color: white;
+  font-size: 18pt;
+  margin-bottom: 2pt;
+}
+.chapter-opener .ch-accent {
+  width: 50px;
+  height: 2px;
+  background: var(--accent);
+  margin: 6pt 0 4pt;
+}
+.chapter-opener .ch-subtitle {
+  font-family: var(--dm);
+  font-size: 10pt;
+  color: var(--accent-mid);
+  font-weight: 400;
+}
+
+/* ===== LEVEL INTRO ===== */
+.level-intro {
+  font-style: italic;
+  color: var(--sub);
+  font-weight: 400;
+  margin-bottom: 10pt;
+  font-size: 10pt;
+}
+
+/* ===== PLACEHOLDER IMAGES ===== */
+.placeholder-img {
+  width: 55%;
+  aspect-ratio: 4/3;
+  background: #F1F5F9;
+  border: 2px dashed #CBD5E1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 8pt auto;
+  border-radius: 4px;
+  color: #94A3B8;
+  font-size: 8pt;
+  text-align: center;
+  font-family: var(--dm);
+}
+.placeholder-img .ph-icon {
+  font-size: 20pt;
+  margin-bottom: 4pt;
+  opacity: 0.4;
+}
+.placeholder-img .ph-label {
+  font-weight: 500;
+  color: var(--sub);
+  font-size: 9pt;
+}
+.placeholder-img .ph-hint {
+  font-size: 7pt;
+  color: #94A3B8;
+  margin-top: 2pt;
+}
+.placeholder-img-tall {
+  aspect-ratio: 3/4;
+  width: 40%;
+}
+.placeholder-img-wide {
+  aspect-ratio: 16/9;
+  width: 65%;
+}
+
+/* ===== REAL EXERCISE IMAGES ===== */
+.exercise-img {
+  width: 55%;
+  aspect-ratio: 4/3;
+  margin: 8pt auto;
+  border-radius: 4px;
+  overflow: hidden;
+  break-inside: avoid;
+}
+.exercise-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.exercise-img.exercise-img-tall {
+  aspect-ratio: 3/4;
+  width: 40%;
+}
+.exercise-img.exercise-img-wide {
+  aspect-ratio: 16/9;
+  width: 65%;
+}
+
+/* ===== EXERCISE BLOCK ===== */
+.exercise-block {
+  margin-bottom: 10pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* ===== EXERCISE BOX (prescription) ===== */
+.ex-box {
+  border-left: 3px solid var(--accent);
+  padding: 6pt 0 6pt 10pt;
+  margin: 4pt 0;
+  background: var(--light);
+}
+.ex-box .ex-rx {
+  font-family: var(--syne);
+  font-size: 9pt;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.5;
+}
+.ex-box .ex-video {
+  font-size: 7.5pt;
+  color: var(--warm);
+  margin-top: 2pt;
+  font-weight: 400;
+  word-break: break-all;
+}
+.ex-box .ex-video a {
+  color: var(--warm);
+  text-decoration: none;
+}
+
+/* ===== CALLOUT ===== */
+.callout {
+  font-style: italic;
+  color: var(--dark);
+  padding: 0 12pt;
+  margin: 6pt 0;
+  font-size: 10pt;
+  font-weight: 400;
+}
+
+/* ===== GRADUATION BOX ===== */
+.grad-box {
+  border: 1.5px solid var(--accent);
+  padding: 10pt 14pt;
+  margin: 10pt 0;
+  display: flex;
+  gap: 10pt;
+  align-items: flex-start;
+  break-inside: avoid;
+}
+.grad-box .grad-check {
+  font-size: 14pt;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.grad-box .grad-text {
+  font-family: var(--syne);
+  font-size: 9pt;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+/* ===== BENCHMARKING TABLE ===== */
+.bench-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  margin: 8pt 0;
+}
+.bench-table th {
+  background: var(--navy);
+  color: white;
+  font-family: var(--syne);
+  font-weight: 600;
+  padding: 5pt 7pt;
+  text-align: left;
+}
+.bench-table th:first-child { text-align: center; width: 12%; }
+.bench-table td {
+  padding: 5pt 7pt;
+  border-bottom: 1px solid var(--border);
+  font-weight: 400;
+  vertical-align: top;
+}
+.bench-table td:first-child {
+  text-align: center;
+  font-family: var(--syne);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title {
+  font-family: var(--syne);
+  font-size: 12pt;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 14pt 0 4pt;
+}
+
+/* ===== BLOCK HEADING (sub-block) ===== */
+.block-heading {
+  font-family: var(--syne);
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 8pt 0 2pt;
+}
+
+/* ===== BULLET LIST ===== */
+.priority-list {
+  list-style: none;
+  padding: 0;
+  margin: 4pt 0 8pt 0;
+}
+.priority-list li {
+  padding: 1pt 0 1pt 16pt;
+  font-size: 10pt;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ===== HORIZONTAL RULE ===== */
+.accent-hr {
+  border: none;
+  height: 1.5px;
+  background: var(--accent);
+  margin: 16pt 0;
+}
+
+/* ===== CLOSING ===== */
+.closing {
+  text-align: center;
+  margin-top: 24pt;
+  color: var(--sub);
+}
+.closing .cl-main {
+  font-family: var(--syne);
+  font-weight: 600;
+  font-size: 10pt;
+}
+.closing .cl-sub {
+  font-style: italic;
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 3pt;
+}
+
+/* ===== RUNNING HEADER (screen only) ===== */
+.running-header {
+  font-size: 6.5pt;
+  color: #94A3B8;
+  text-align: center;
+  padding-bottom: 6pt;
+  border-bottom: 0.5pt solid var(--border);
+  margin-bottom: 12pt;
+  font-weight: 400;
+}
+
+.page-cover .running-header,
+.page-frontmatter .running-header { display: none; }
+
+/* ===== HELPERS ===== */
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: 4pt; }
+.mb-md { margin-bottom: 8pt; }
+.mb-lg { margin-bottom: 16pt; }
+.text-center { text-align: center; }
+.text-small { font-size: 9pt; }
+.text-xs { font-size: 7.5pt; }
+.text-sub { color: var(--sub); }
+
+/* ===== PRINT OVERRIDES ===== */
+@media print {
+  .running-header { display: none; }
+  .page-cover .cover-inner {
+    width: 6in;
+    height: 9in;
+    margin: -0.7in -0.65in;
+  }
+  .chapter-opener {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .placeholder-img,
+  .exercise-img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     COVER
+     ============================================================ -->
+<div class="page page-cover">
+  <div class="cover-inner">
+    <div class="cover-the">THE</div>
+    <div class="cover-title">RING MUSCLE UP</div>
+    <div class="cover-line"></div>
+    <div class="cover-subtitle">The Complete Training Guide</div>
+    <div class="cover-tagline">From Your First Ring Hang to a Clean, Strict Muscle Up</div>
+    <div class="cover-brand-line"></div>
+    <div class="cover-brand">The Bodyweight Gym</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TITLE PAGE
+     ============================================================ -->
+<div class="page page-frontmatter">
+  <div class="title-page">
+    <h1>THE RING MUSCLE UP</h1>
+    <div class="accent-rule"></div>
+    <div class="subtitle">The Complete Training Guide</div>
+    <div class="tagline">From Your First Ring Hang to a Clean, Strict Muscle Up</div>
+    <div class="author">The Bodyweight Gym</div>
+    <div class="edition">First Edition</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     DISCLAIMER
+     ============================================================ -->
+<div class="page page-frontmatter">
+  <div class="disclaimer">
+    <h2>Disclaimer</h2>
+    <div class="disclaimer-rule"></div>
+    <p>Before starting any exercise programme, consult a qualified fitness or sports professional to ensure this programme is suitable for you. Do not undertake training with The Bodyweight Gym without professional or qualified instruction on proper technique. Use common sense when training and understand your personal limitations.</p>
+    <p>Any programme involving resistance training, gymnastics, or work on rings or bars is potentially dangerous and could lead to severe injury. The user assumes all risks and responsibilities for injuries which may occur during or following use of this programme. The Bodyweight Gym cannot be held responsible for any injuries which may occur as a result of training with this programme.</p>
+    <p>The Bodyweight Gym and the buyer disclaim any express or implied warranty, including, but not limited to, warranties of merchantability or fitness for a particular purpose. The buyer assumes all liability in use of this programme.</p>
+    <div class="copyright">
+      <p>© The Bodyweight Gym. All rights reserved.</p>
+      <p>No part of this publication may be reproduced without written permission.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TABLE OF CONTENTS
+     ============================================================ -->
+<div class="page page-frontmatter">
+  <div class="toc">
+    <h1>Contents</h1>
+    <div class="toc-accent"></div>
+    <div class="toc-item">Introduction</div>
+    <div class="toc-item">Benchmarking</div>
+    <div class="toc-item">Loading, Deloading, and How to Progress</div>
+    <div class="toc-item">The Workouts</div>
+    <div class="toc-item toc-sub">Level 1 — Foundation</div>
+    <div class="toc-item toc-sub">Level 2 — Pull &amp; Push</div>
+    <div class="toc-item toc-sub">Level 3 — False Grip Integration</div>
+    <div class="toc-item toc-sub">Level 4 — Eccentric Control</div>
+    <div class="toc-item toc-sub">Level 5 — First Muscle Up</div>
+    <div class="toc-item toc-sub">Level 6 — Conditioning</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     INTRODUCTION
+     ============================================================ -->
+<div class="page">
+  <div class="running-header">The Ring Muscle Up — The Complete Training Guide</div>
+  <div class="chapter-opener">
+    <h1>Introduction</h1>
+  </div>
+
+  <div class="exercise-img exercise-img-wide">
+    <img src="assets/images/image_01.png" alt="Strict Ring Muscle Up">
+  </div>
+
+  <p>The ring muscle up is the movement of pulling yourself from a dead hang on gymnastic rings through the transition and pressing to a supported position on top of the rings — with straight arms, full control, and no kipping. At first glance it looks like a single skill. In practice, it is the product of pulling strength, pressing strength, wrist and shoulder mobility, and the specific skill of the false grip and transition.</p>
+
+  <p>Learning the strict ring muscle up requires a deliberate combination of strength work and skill practice. Most people need to build a foundation of hangs, rows, and push-ups; then develop pull-ups and dips; then master the false grip and the transition. This guide walks you through each phase in six progressive levels. Each level has a clear graduation test. Satisfy each requirement before moving on. Skipping levels is the fastest way to stall — or get injured.</p>
+
+  <p><b>What does "strict" mean in this guide?</b> Minimal hip pike, no swinging, no kipping. You pull and press with control. The hard way is the right way.</p>
+
+  <p><b>How long will this take?</b> For someone starting from scratch, 12 months or more is realistic. If you already have solid pull-ups and dips, it could be a few months. Progress demands consistent effort — train no more than every two days, with a deload week every five weeks. There are no shortcuts.</p>
+
+  <p><b>What equipment do you need?</b> Gymnastic rings (wood preferred), something to hang them from (pull-up bar or rig), parallel bars or a dip station for Level 2, and chalk. That's it.</p>
+
+  <h2 class="section-title">The Kinetic Chain</h2>
+
+  <p>The muscle up demands that your hands, wrists, forearms, elbows, shoulders, and core all function as an integrated unit. Your connective tissue — tendons, ligaments, and joint capsules — must adapt alongside your muscles.</p>
+
+  <p>This is critical: different tissues adapt at different rates. Muscles remodel in roughly 3 months. Tendons and ligaments take approximately 9 months. If your muscles are getting strong but your elbows or shoulders are grumbling, the message is clear — slow down.</p>
+
+  <p class="callout">The goal of training is to stress your body enough that it adapts, then allow adequate recovery. If you exceed your body's capacity to recover, the result is injury. You can only progress as fast as the weakest link in the chain.</p>
+</div>
+
+<!-- ============================================================
+     BENCHMARKING
+     ============================================================ -->
+<div class="page">
+  <div class="running-header">The Ring Muscle Up — The Complete Training Guide</div>
+  <div class="chapter-opener">
+    <h1>Benchmarking</h1>
+  </div>
+
+  <p>If you are completely new to ring training, begin at Level 1. If you have some experience, use the tests below to find the appropriate starting level. Be honest — starting too high is worse than starting too low.</p>
+
+  <table class="bench-table">
+    <thead>
+      <tr><th>Level</th><th>Entry Requirements</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Zero experience or unsure. Cannot yet do 5 strict pull-ups or 5 bar dips.</td></tr>
+      <tr><td>2</td><td>Can hang 1 min, 5+ ring rows (chest to rings), 10+ push-ups. Ready for pull-ups and bar dips.</td></tr>
+      <tr><td>3</td><td>5+ strict pull-ups, 5+ bar dips. Can hold false grip hang 30 sec. Ready for false grip pull-ups and ring dips.</td></tr>
+      <tr><td>4</td><td>3+ false grip pull-ups, 3+ ring dips with turn-out. Can hold bent-arm support. Ready for tempo negatives.</td></tr>
+      <tr><td>5</td><td>Can perform a slow negative muscle up (5+ sec) with control. Ready to attempt first strict muscle up.</td></tr>
+      <tr><td>6</td><td>Have achieved at least one strict ring muscle up. Ready to build volume and conditioning.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================
+     LOADING, DELOADING
+     ============================================================ -->
+<div class="page">
+  <div class="running-header">The Ring Muscle Up — The Complete Training Guide</div>
+  <div class="chapter-opener">
+    <h1>Loading, Deloading</h1>
+    <div class="ch-accent"></div>
+    <div class="ch-subtitle">and How to Progress</div>
+  </div>
+
+  <p>Your training should be structured in repeating blocks of effort and recovery. This approach gives your body enough stress to grow and enough time to adapt.</p>
+
+  <h3 class="block-heading">Block 1 — Establish Your Baseline</h3>
+  <p>Pick a level and set range appropriate to your current strength. If in doubt, be conservative. Train hard for 4 weeks. Take the 5th week completely off.</p>
+
+  <h3 class="block-heading">Block 2 — Add Volume</h3>
+  <p>Add one set to each exercise where applicable. Train hard for 4 weeks. Take the 5th week off. Repeat until you reach the upper set range for your level.</p>
+
+  <h3 class="block-heading">Block 3 — Test and Progress</h3>
+  <p>Test against the graduation requirements for the next level. If you meet the criteria, begin the next level at the lower set range.</p>
+
+  <h3 class="block-heading">Block 4 — Continue the Cycle</h3>
+  <p>Keep developing your programme. Train no more than once every two days. The cycle of progressive overload followed by recovery is the fundamental engine of adaptation.</p>
+
+  <p class="callout">Learning a strict ring muscle up from scratch will likely take 12 months or more. Patience is not optional — it is the defining characteristic of everyone who succeeds.</p>
+</div>
+
+<!-- ============================================================
+     LEVEL 1 — FOUNDATION
+     ============================================================ -->
+<div class="page">
+  <div class="running-header">The Ring Muscle Up — The Complete Training Guide</div>
+  <div class="chapter-opener">
+    <h1>Level 1</h1>
+    <div class="ch-accent"></div>
+    <div class="ch-subtitle">Foundation</div>
+  </div>
+
+  <p class="level-intro">You are building the base. This level focuses on wrist strength, shoulder mobility, ring hangs, rows, and push-ups. Do not rush. The work you do here will determine how smoothly you advance through every subsequent level.</p>
+
+  <p class="text-small"><b>Training frequency:</b> 3–4 days per week, 30–45 minutes per session. Warm up for 5–10 minutes before each session. Rest 60–90 seconds between sets unless otherwise noted.</p>
+
+  <div class="exercise-block">
+    <h3>Wrist Heel Raises</h3>
+    <div class="exercise-img">
+      <img src="assets/images/armExtensionStretch.png" alt="Wrist and arm mobility">
+    </div>
+    <p>Kneel with your hands flat on the floor, fingers pointing forward. Slowly lift the heels of your hands off the ground while keeping your fingertips pressed down, then lower. On the final rep, hold the raised position for 10 seconds. Essential for ring support and transition.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 10 reps, hold last rep 10 sec<br>Sets: 3–5</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>Ring Hang</h3>
+    <div class="exercise-img">
+      <img src="assets/images/image_02.png" alt="Dead hang on rings">
+    </div>
+    <p>Hang from the rings with an overhand grip, arms fully extended. Build toward a 1-minute dead hang. If you cannot hold initially, accumulate 60 seconds across multiple shorter holds. This builds grip and shoulder stability.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: Accumulate 1 min (build to unbroken)<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>Ring Rows</h3>
+    <div class="exercise-img">
+      <img src="assets/images/image_03.png" alt="Ring rows">
+    </div>
+    <p>Set the rings at waist height or lower. Hold the rings, walk your feet forward until your body is inclined. Pull your chest to the rings while keeping a straight line from head to heels. Lower with control. Scale by moving your feet further under the rings to make it easier.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 8–12 (chest to rings)<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>Push-ups</h3>
+    <div class="exercise-img">
+      <img src="assets/images/image_04.png" alt="Push-ups">
+    </div>
+    <p>Hands under or slightly wider than shoulders, full range of motion — chest touches the floor at the bottom, full lockout at the top. Keep a straight line from head to heels. Regress to knees if needed.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 10–15<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="grad-box">
+    <div class="grad-check">✓</div>
+    <div class="grad-text">Level 1 Graduation: 1 min unbroken ring hang, 5+ ring rows with chest to rings, 10+ push-ups. All in one session, with good form.</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     LEVEL 2 — PULL & PUSH
+     ============================================================ -->
+<div class="page">
+  <div class="running-header">The Ring Muscle Up — The Complete Training Guide</div>
+  <div class="chapter-opener">
+    <h1>Level 2</h1>
+    <div class="ch-accent"></div>
+    <div class="ch-subtitle">Pull &amp; Push</div>
+  </div>
+
+  <p class="level-intro">You have a foundation. Now you build pulling and pushing strength with pull-ups and bar dips, and introduce the false grip hang. This level prepares you for the specific demands of the muscle up.</p>
+
+  <div class="exercise-block">
+    <h3>Ring Hang + Ring Rows</h3>
+    <p>Continue as per Level 1. Maintain 1 min hang and 5+ ring rows.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 1 min hang; 8–12 ring rows<br>Sets: 3–5 sets</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>Strict Pull-ups</h3>
+    <div class="exercise-img">
+      <img src="assets/images/image_16.png" alt="Strict pull-up">
+    </div>
+    <p>From a dead hang, pull until your chin clears the bar or rings. Lower with full control. No kipping. Use a band or foot assist if needed to reach 5 reps; reduce assistance over time.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 5+ (build to 8)<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>Bar Dips</h3>
+    <div class="exercise-img">
+      <img src="assets/images/bardipbottom.png" alt="Bar / ring dip">
+    </div>
+    <p>Support yourself on parallel bars or a dip station. Lower until your shoulders are at or below elbow height, then press to full lockout. Keep your torso upright; avoid excessive lean.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 5+ (build to 8)<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>False Grip Hang</h3>
+    <div class="exercise-img">
+      <img src="assets/images/image_11.png" alt="False grip hang">
+    </div>
+    <p>Hang from the rings with a false grip: wrists over the rings, heels of the hands resting on the rings, fingers wrapped. Build to 30 seconds. This is the grip you will use for the muscle up.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: Accumulate 30 sec (build to unbroken)<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>Transition Rows (High Pull)</h3>
+    <div class="exercise-img">
+      <img src="assets/images/image_08.png" alt="High ring row / transition pull">
+    </div>
+    <p>From a false grip hang with feet on the floor or box, pull the rings to your chest or armpits. This mimics the pull phase of the muscle up. Keep the rings close to your body.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 5–8<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="grad-box">
+    <div class="grad-check">✓</div>
+    <div class="grad-text">Level 2 Graduation: 5+ strict pull-ups, 5+ bar dips, 30 sec unbroken false grip hang. All in one session.</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     LEVEL 3 — FALSE GRIP INTEGRATION
+     ============================================================ -->
+<div class="page">
+  <div class="running-header">The Ring Muscle Up — The Complete Training Guide</div>
+  <div class="chapter-opener">
+    <h1>Level 3</h1>
+    <div class="ch-accent"></div>
+    <div class="ch-subtitle">False Grip Integration</div>
+  </div>
+
+  <p class="level-intro">You have pull-ups, dips, and a false grip hang. Now you integrate the false grip into pulling and introduce ring dips with turn-out. This level builds the specific strength and positions for the transition.</p>
+
+  <div class="exercise-block">
+    <h3>False Grip Hang</h3>
+    <p>Continue. Build to 45–60 sec unbroken if possible.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 30–60 sec<br>Sets: 3–5 sets</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>False Grip Pull-ups</h3>
+    <div class="exercise-img">
+      <img src="assets/images/image_17.png" alt="False grip pull-up">
+    </div>
+    <p>From a false grip hang, pull until your chest reaches the rings (or as high as you can). Lower with control. These are harder than regular pull-ups; scale with a band or reduce range until you can do 3 full reps.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 3+ (build to 5)<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>Ring Dips (Turn Out)</h3>
+    <div class="exercise-img">
+      <img src="assets/images/image_06.png" alt="Ring dip with turn out">
+    </div>
+    <p>From ring support, lower with control until your shoulders are at or below elbow height. Press to lockout and turn the rings out at the top (palms facing forward). This replicates the top of the muscle up.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 3+ (build to 5)<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>Bent Arm Hang / Bent Arm Support</h3>
+    <div class="exercise-img">
+      <img src="assets/images/image_09.png" alt="Bent arm hold / transition position">
+    </div>
+    <p>From a jump or pull, hold yourself with your chest at the rings and elbows bent (top of pull position). Build hold time. This is the "transition" position — the hardest part of the muscle up.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: Hold 5–15 sec<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="grad-box">
+    <div class="grad-check">✓</div>
+    <div class="grad-text">Level 3 Graduation: 3+ false grip pull-ups (chest to rings), 3+ ring dips with turn-out, 10+ sec bent arm hold. All in one session.</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     LEVEL 4 — ECCENTRIC CONTROL
+     ============================================================ -->
+<div class="page">
+  <div class="running-header">The Ring Muscle Up — The Complete Training Guide</div>
+  <div class="chapter-opener">
+    <h1>Level 4</h1>
+    <div class="ch-accent"></div>
+    <div class="ch-subtitle">Eccentric Control</div>
+  </div>
+
+  <p class="level-intro">You have the strength components. Now you learn the full movement pattern under load with tempo negative (eccentric) muscle ups. You will jump or assist into the top position, then lower as slowly as possible. This builds control and prepares the tissues for the full rep.</p>
+
+  <div class="exercise-block">
+    <h3>False Grip Pull-ups + Ring Dips</h3>
+    <p>Continue as per Level 3. Maintain 3+ false grip pull-ups and 3+ ring dips.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 3–5 each<br>Sets: 3–5 sets</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>Tempo Negative Muscle Up</h3>
+    <div class="exercise-img exercise-img-tall">
+      <img src="assets/images/image_10.png" alt="Negative muscle up — press to support">
+    </div>
+    <p>From a jump, box, or band assist, get to the top of the rings in support. Slowly lower through the transition (bend elbows, bring chest toward rings) and then lower to a dead hang. Aim for 5+ seconds on the way down. No free-fall.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 1–3 negatives, 5+ sec descent<br>Sets: 3–5 sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <p class="callout">The negative teaches your body the path. Once you can control a 5-second negative, you are ready to attempt the concentric (pulling) phase.</p>
+
+  <div class="grad-box">
+    <div class="grad-check">✓</div>
+    <div class="grad-text">Level 4 Graduation: Perform a single negative muscle up with at least 5 seconds controlled descent from support to hang.</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     LEVEL 5 — FIRST MUSCLE UP
+     ============================================================ -->
+<div class="page">
+  <div class="running-header">The Ring Muscle Up — The Complete Training Guide</div>
+  <div class="chapter-opener">
+    <h1>Level 5</h1>
+    <div class="ch-accent"></div>
+    <div class="ch-subtitle">First Muscle Up</div>
+  </div>
+
+  <p class="level-intro">You have the strength and the pattern. This level is about putting it together: your first strict ring muscle up. You will continue building volume on the components and dedicate time to attempts. One rep counts. No kip, minimal pike.</p>
+
+  <div class="exercise-block">
+    <h3>False Grip Pull-ups + Ring Dips</h3>
+    <p>Continue. Keep building to 5+ false grip pull-ups and 5+ ring dips.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 5+ each<br>Sets: 3–5 sets</div>
+    </div>
+  </div>
+
+  <div class="exercise-block">
+    <h3>Strict Ring Muscle Up — Attempts</h3>
+    <div class="exercise-img exercise-img-wide">
+      <img src="assets/images/image_01.png" alt="Strict ring muscle up">
+    </div>
+    <p>From a false grip hang, pull high (chest to rings), transition over the rings, and press to support. Focus points: false grip from the start; pull the rings to your hips; get your chest over the rings before pressing; turn the rings out at lockout. Use a light band or spotter only if necessary; wean off as soon as possible.</p>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 1–3 attempts per set<br>Sets: 5–8 sets (quality over quantity)</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="grad-box">
+    <div class="grad-check">✓</div>
+    <div class="grad-text">Level 5 Graduation: Perform one strict ring muscle up — from dead hang to locked-out support — with no kip and minimal hip pike. Congratulations. You have your first muscle up.</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     LEVEL 6 — CONDITIONING
+     ============================================================ -->
+<div class="page">
+  <div class="running-header">The Ring Muscle Up — The Complete Training Guide</div>
+  <div class="chapter-opener">
+    <h1>Level 6</h1>
+    <div class="ch-accent"></div>
+    <div class="ch-subtitle">Conditioning</div>
+  </div>
+
+  <p class="level-intro">You have your first muscle up. This level is about building volume, endurance, and bulletproof technique. Multiple reps per set, multiple sets, and clean form every time.</p>
+
+  <div class="exercise-block">
+    <h3>Strict Ring Muscle Up</h3>
+    <div class="exercise-img exercise-img-tall">
+      <img src="assets/images/image_19.png" alt="Strict ring muscle up — support hold">
+    </div>
+    <p>Perform strict ring muscle ups for volume. Priorities:</p>
+    <ol class="priority-list">
+      <li><b>1. Full range.</b> Dead hang to lockout, every rep.</li>
+      <li><b>2. No kip.</b> Control the pull and the transition.</li>
+      <li><b>3. Turn out at top.</b> Lockout with rings turned out.</li>
+      <li><b>4. Rest enough.</b> Quality over quantity. Add reps and sets gradually.</li>
+    </ol>
+    <div class="ex-box">
+      <div class="ex-rx">Reps: 2–5 per set (build over time)<br>Sets: 5–8 sets, 2–3 min rest between sets</div>
+      <div class="ex-video">▶ Video: [Add link]</div>
+    </div>
+  </div>
+
+  <div class="grad-box">
+    <div class="grad-check">✓</div>
+    <div class="grad-text">Level 6 Graduation: Perform 3+ strict ring muscle ups in a single set with good form. You have earned your muscle up. Now the real journey — strength and consistency — continues.</div>
+  </div>
+
+  <hr class="accent-hr">
+
+  <div class="closing">
+    <p class="cl-main">Thank you for training with The Bodyweight Gym.</p>
+    <p class="cl-sub">The ring muscle up is a lifelong skill. Continue building volume, refining technique, and enjoying the process.</p>
+  </div>
+</div>
+
+</body>
+</html>
