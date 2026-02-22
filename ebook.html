@@ -298,11 +298,11 @@ strong, b { font-weight: 500; color: var(--dark); }
   width: 65%;
 }
 
-/* ===== REAL EXERCISE IMAGES (no crop — full image visible, large enough for detail) ===== */
+/* ===== REAL EXERCISE IMAGES — full content width, no crop, large for detail ===== */
 .exercise-img {
-  width: 80%;
-  max-width: 4.2in;
-  margin: 10pt auto;
+  width: 100%;
+  max-width: none;
+  margin: 12pt auto;
   border-radius: 4px;
   break-inside: avoid;
 }
@@ -314,79 +314,74 @@ strong, b { font-weight: 500; color: var(--dark); }
   object-position: center;
 }
 .exercise-img.exercise-img-tall {
-  width: 60%;
-  max-width: 2.8in;
+  width: 85%;
+  max-width: 3.6in;
 }
 .exercise-img.exercise-img-wide {
-  width: 90%;
-  max-width: 4.8in;
+  width: 100%;
+  max-width: none;
 }
 .exercise-sequence {
   display: flex;
-  gap: 8pt;
-  margin: 10pt auto;
+  gap: 10pt;
+  margin: 12pt auto;
   flex-wrap: wrap;
   justify-content: center;
   break-inside: avoid;
+  width: 100%;
 }
 .exercise-sequence img {
-  width: calc(33.333% - 8pt);
-  min-width: 1.2in;
-  max-width: 2in;
+  width: calc(50% - 5pt);
+  min-width: 2in;
+  max-width: 2.6in;
   height: auto;
   object-fit: contain;
   object-position: center;
   border-radius: 4px;
   display: block;
 }
-/* 2-image sequence: start → end */
+/* 2-image sequence: start → end (2 per row, large) */
 .exercise-sequence-2 img {
-  width: calc(50% - 4pt);
-  min-width: 1.4in;
-  max-width: 2.4in;
+  width: calc(50% - 5pt);
+  min-width: 2.2in;
+  max-width: 2.8in;
 }
-/* 3-image sequence: start → middle → end */
+/* 3-image sequence: 2 on first row, 1 on second — each large */
 .exercise-sequence-3 img {
-  width: calc(33.333% - 8pt);
-  min-width: 1.2in;
-  max-width: 2in;
+  width: calc(50% - 5pt);
+  min-width: 2in;
+  max-width: 2.6in;
 }
-/* 4-image sequence (e.g. negative MU phases) */
+/* 4-image: 2 per row */
 .exercise-sequence-4 img {
-  width: calc(25% - 6pt);
-  min-width: 1in;
-  max-width: 1.6in;
+  width: calc(50% - 5pt);
+  min-width: 2in;
+  max-width: 2.6in;
 }
-/* 5-image sequence (full muscle up) */
+/* 5-image: 2 per row (2+2+1) */
 .exercise-sequence-5 img {
-  width: calc(20% - 6pt);
-  min-width: 0.9in;
-  max-width: 1.4in;
+  width: calc(50% - 5pt);
+  min-width: 2in;
+  max-width: 2.6in;
 }
 
-/* ===== LARGE SEQUENCES (Level 4–6: muscle up / muscle down — detail matters) ===== */
+/* ===== LARGE SEQUENCES (Level 4–6: muscle up / muscle down — maximum size) ===== */
 .exercise-sequence-mu-large {
-  width: 95%;
-  max-width: 5.2in;
-  margin: 12pt auto;
-  gap: 10pt;
+  width: 100%;
+  max-width: none;
+  margin: 14pt auto;
+  gap: 12pt;
 }
-/* 4 images: 2 per row so each is big enough to see */
-.exercise-sequence-mu-large.exercise-sequence-4 img {
-  width: calc(50% - 5pt);
-  min-width: 2.2in;
-  max-width: 2.8in;
-}
-/* 5 images: 2 per row (2+2+1) so each is big enough to see */
+.exercise-sequence-mu-large.exercise-sequence-4 img,
 .exercise-sequence-mu-large.exercise-sequence-5 img {
-  width: calc(50% - 5pt);
-  min-width: 2.2in;
-  max-width: 2.8in;
+  width: calc(50% - 6pt);
+  min-width: 2.5in;
+  max-width: none;
 }
-/* Single hero image for Level 6 conditioning — full width for clarity */
+/* Single hero image Level 6 — full width */
 .exercise-img.exercise-img-mu-hero {
-  width: 90%;
-  max-width: 4.8in;
+  width: 100%;
+  max-width: none;
 }
 .exercise-img.exercise-img-mu-hero img {
   width: 100%;
