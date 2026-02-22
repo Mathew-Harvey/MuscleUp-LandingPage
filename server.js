@@ -29,6 +29,10 @@ const staticDir = path.join(__dirname);
 app.get('/', (req, res) => res.sendFile(path.join(staticDir, 'index.html')));
 app.get('/index.html', (req, res) => res.sendFile(path.join(staticDir, 'index.html')));
 app.get('/thank-you.html', (req, res) => res.sendFile(path.join(staticDir, 'thank-you.html')));
+app.get('/ebook.html', (req, res) => res.sendFile(path.join(staticDir, 'ebook.html')));
+
+// Alias so /images/* resolves to assets/images/* (e.g. EPUB viewer or legacy paths)
+app.use('/images', express.static(path.join(staticDir, 'assets', 'images')));
 
 app.use(express.static(staticDir));
 
