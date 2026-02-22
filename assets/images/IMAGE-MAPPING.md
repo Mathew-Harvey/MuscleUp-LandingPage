@@ -1,35 +1,53 @@
-# Image mapping: PDF ↔ Landing page
+# Image mapping: descriptive filenames ↔ ebook & landing page
 
-**Assumption:** `image_01.png` … `image_31.png` were extracted from `RingMuscleUp.pdf` in page order (page 1 → image_01, page 2 → image_02, …). The guide is described as "31 Pages of Instruction" on the landing page.
+All images in this folder use **descriptive names** that match their content. They replace the previous `image_01.png` … `image_31.png` extractions from `RingMuscleUp.pdf`.
 
-**Current mapping used in `index.html`:**
+## Image inventory (by purpose)
 
-| Landing page slot | Purpose | Current image |
-|------------------|---------|---------------|
-| **Hero** | Main ring muscle up / cover-style shot | `image_01.png` (PDF p.1) |
-| **Gallery 1** | Core progression with rings | `grok-image-dcffe4de-8fc7-4857-baa1-73bba1005a73.png` |
-| **Gallery 2** | Ring strength exercise | `image_15.png` |
-| **Gallery 3** | Pull-up progression | `image_16.png` |
-| **Gallery 4** | False grip pull-up | `image_17.png` |
-| **Gallery 5** | Ring dip position | `bardipbottom.png` |
-| **Gallery 6** | Ring support hold | `image_19.png` |
-| **Annotated 1** | Phase 1 — pull and transition | `image_08.png` |
-| **Annotated 2** | Phase 2 — transition and catch | `image_09.png` |
-| **Annotated 3** | Phase 3 — press to support | `image_10.png` |
-| **Approach section** | Arm extension stretch (mobility) | `armExtensionStretch.png` |
-| **Wide break** | Core exercise progression (rings in every panel) | `grok-image-dcffe4de-8fc7-4857-baa1-73bba1005a73.png` |
+| Filename | Purpose | Used in |
+|----------|---------|--------|
+| **ringmu1.png** … **ringmu5.png** | Muscle up sequence (hang → … → support) | ebook intro/Level 5/6; landing hero, gallery, wide break |
+| **ringhang.png** | Dead hang on rings | ebook Level 1 Ring Hang; landing gallery |
+| **ringpulluptop.png**, **ringpullupbottom.png**, **ringpullupbottom02.png**, **ringpullupscapdownmiddle.png** | Ring pull-up positions | ebook Level 2 Strict Pull-ups; landing gallery |
+| **ringpushuptop.png**, **ringpushupbottom.png** | Ring push-up top/bottom | ebook Level 1 Push-ups |
+| **fgringhang.png** | False grip hang | ebook Level 2 False Grip Hang |
+| **fgpulluptop.png** | False grip pull-up (top) | ebook Level 3 False Grip Pull-ups; landing gallery |
+| **fgringrowtop.png**, **fgringrowbottom.png** | False grip ring row | ebook Level 1 Ring Rows |
+| **fgringstretch.png** | False grip ring stretch | (available for mobility sections) |
+| **ringfalsegrip.png** | False grip close-up | (available) |
+| **ringrowtransitiontop.png**, **ringrowtransitionmiddle.png**, **ringrowtransistionbottom.png** | Row / high pull transition | ebook Level 2 Transition Rows; landing sequence strip |
+| **bardiptop.png**, **bardipbottom.png** | Bar dip top/bottom | ebook Level 2 Bar Dips; landing gallery |
+| **rgmuscledowntop.png**, **rgmuscledowndiptransition.png**, **rgmuscledownbottomdip.png**, **rgmuscledownbottom.png** | Negative muscle up (ring “muscle down”) | ebook Level 3 Ring Dips, Bent Arm Hold; Level 4 Negative; landing sequence |
+| **armExtensionStretch.png** | Arm extension / wrist mobility | ebook Level 1 Wrist; landing Approach section |
 
-**How to verify or correct**
+## Landing page (`index.html`) — current mapping
 
-1. Open `assets/RingMuscleUp.pdf` and note the **page number** for:
-   - The hero/cover-style image
-   - The 6 gallery-style photos (hang, strength, pull-up, false grip, dip, support)
-   - The 3 annotated movement phase images
-   - The false-grip close-up
-   - The wide progression sequence image
-2. If a page number doesn’t match the table (e.g. hero is on page 3, not 1), change the `image_XX` in `index.html` to the correct number (e.g. `image_03.png` for hero).
-3. Images **image_13.png … image_31.png** are available if you want to swap in different pages (e.g. use a later page for hero or gallery).
+| Section | Image | Alt intent |
+|---------|--------|------------|
+| **Hero** | `ringmu5.png` | Ring muscle up (support/top) |
+| **Gallery 1–6** | `ringhang.png`, `ringpulluptop.png`, `fgpulluptop.png`, `ringrowtransitiontop.png`, `bardipbottom.png`, `ringmu5.png` | Progression from hang → pull-up → false grip → transition → dip → support |
+| **Annotated sequence (3)** | `ringrowtransitiontop.png`, `rgmuscledowndiptransition.png`, `rgmuscledowntop.png` | Phase 1–3 breakdown |
+| **Approach** | `armExtensionStretch.png` | Mobility / strict movement |
+| **Wide break** | `ringmu3.png` | Muscle up progression |
 
-**Gallery note:** The gallery was changed from image_02–07 to image_14–19 so it shows more actual ring work (pages 14–19 are often in the middle of the programme where ring hangs, pull-ups, dips, and support are taught). If you prefer a different block (e.g. 20–25 or 21–26), edit the six `gallery-grid` image `src` values in `index.html`.
+## Ebook (`ebook.html`) — current mapping
 
-**Quick reference:** In `index.html`, search for `assets/images/image_` to find all 12 image references.
+| Section | Image |
+|---------|--------|
+| Introduction | `ringmu5.png` |
+| Level 1 — Wrist Heel Raises | `armExtensionStretch.png` |
+| Level 1 — Ring Hang | `ringhang.png` |
+| Level 1 — Ring Rows | `fgringrowbottom.png` |
+| Level 1 — Push-ups | `ringpushuptop.png` |
+| Level 2 — Strict Pull-ups | `ringpulluptop.png` |
+| Level 2 — Bar Dips | `bardipbottom.png` |
+| Level 2 — False Grip Hang | `fgringhang.png` |
+| Level 2 — Transition Rows | `ringrowtransitiontop.png` |
+| Level 3 — False Grip Pull-ups | `fgpulluptop.png` |
+| Level 3 — Ring Dips | `rgmuscledownbottomdip.png` |
+| Level 3 — Bent Arm Hang | `rgmuscledowndiptransition.png` |
+| Level 4 — Tempo Negative MU | `rgmuscledowntop.png` |
+| Level 5 — Strict MU Attempts | `ringmu5.png` |
+| Level 6 — Strict Ring MU (support) | `ringmu5.png` |
+
+To verify placement against the PDF, open `assets/RingMuscleUp.pdf` and match each exercise or phase to the corresponding image name above.
