@@ -74,50 +74,101 @@
   }
   .nav-cta:hover { background: var(--accent-glow); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(200,165,92,0.3); }
 
-  /* ===== HERO ===== */
+  /* ===== HERO — full-bleed image, overlaid content left, stats bottom ===== */
   .hero {
-    min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    position: relative; padding: 120px 24px 80px;
+    position: relative;
+    min-height: 100vh; min-height: 100dvh;
+    display: flex; flex-direction: column;
+    justify-content: center;
     overflow: hidden;
   }
+
+  /* Full-bleed background image */
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
   }
   .hero-bg img {
-    width: 100%; height: 100%; object-fit: cover;
-    opacity: 0.3; filter: grayscale(40%);
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: 35% center;
   }
+  /* Left-side gradient so text is readable, image shows through on right */
   .hero-bg::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 60%, var(--bg-deep) 100%);
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.78) 35%, rgba(10,10,10,0.35) 60%, rgba(10,10,10,0.15) 80%, rgba(10,10,10,0.10) 100%),
+      linear-gradient(180deg, rgba(10,10,10,0.3) 0%, transparent 25%, transparent 75%, rgba(10,10,10,0.5) 100%);
   }
 
-  .hero-content { position: relative; z-index: 1; text-align: center; max-width: 900px; }
-  
+  /* Content overlay — left-aligned */
+  .hero-content-wrap {
+    position: relative; z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 24px 0;
+  }
+  .hero-content {
+    max-width: 540px;
+    text-align: left;
+  }
+
   .hero-eyebrow {
     font-family: var(--heading);
-    font-size: 0.78em; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.25em; color: var(--accent); margin-bottom: 20px;
-    display: flex; align-items: center; justify-content: center; gap: 16px;
+    font-size: 0.75em; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.2em; color: rgba(255,255,255,0.7);
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 24px;
   }
-  .hero-eyebrow::before, .hero-eyebrow::after {
-    content: ''; width: 40px; height: 1px; background: var(--accent);
+  .hero-eyebrow::before {
+    content: ''; width: 40px; height: 2px; background: var(--accent); flex-shrink: 0;
   }
 
   .hero h1 {
-    font-family: var(--heading); font-size: clamp(3em, 8vw, 6.5em);
-    font-weight: 800; line-height: 1.0; letter-spacing: -0.03em;
+    font-family: var(--heading); font-size: clamp(2.8em, 5.5vw, 4.5em);
+    font-weight: 800; line-height: 1.05; letter-spacing: -0.03em;
     margin-bottom: 24px;
+    color: #fff;
   }
   .hero h1 em { font-style: italic; color: var(--accent); }
 
   .hero-sub {
     font-family: var(--body);
-    font-size: 1.15em; color: var(--text-secondary); max-width: 600px;
-    margin: 0 auto 40px; line-height: 1.7;
+    font-size: 1.08em; color: rgba(255,255,255,0.72);
+    margin-bottom: 16px; line-height: 1.7;
+    max-width: 480px;
   }
+  .hero-offer {
+    font-family: var(--body);
+    font-size: 0.95em; color: var(--accent);
+    margin-bottom: 32px; line-height: 1.65;
+  }
+  .hero-offer strong { color: #fff; font-weight: 600; }
 
-  .hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .hero-cta-group { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* Stats bar pinned to bottom of hero */
+  .hero-stats {
+    position: relative; z-index: 2;
+    margin-top: auto;
+    padding: 28px 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-stats-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; gap: 48px; flex-wrap: wrap;
+  }
+  .hero-stat { display: flex; flex-direction: column; }
+  .hero-stat-num {
+    font-family: var(--heading); font-size: 2em; font-weight: 800;
+    color: #fff; line-height: 1;
+  }
+  .hero-stat-label {
+    font-family: var(--body); font-size: 0.72em;
+    color: rgba(255,255,255,0.45); text-transform: uppercase;
+    letter-spacing: 0.1em; margin-top: 4px;
+  }
 
   .btn-primary {
     display: inline-flex; align-items: center; gap: 10px;
@@ -139,28 +190,7 @@
   }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-  .hero-price {
-    margin-top: 24px; font-size: 0.85em; color: var(--text-muted);
-  }
-  .hero-price strong { color: var(--text-primary); font-size: 1.8em; font-weight: 700; vertical-align: middle; }
-
-  /* ===== SOCIAL PROOF ===== */
-  .social-proof {
-    padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  }
-  .proof-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 32px; text-align: center;
-  }
-  .proof-stat .stat-number {
-    font-family: var(--heading); font-size: 2.5em; font-weight: 800;
-    color: var(--accent); line-height: 1;
-  }
-  .proof-stat .stat-label {
-    font-family: var(--body);
-    font-size: 0.82em; color: var(--text-muted); margin-top: 4px;
-    text-transform: uppercase; letter-spacing: 0.08em;
-  }
+  /* ===== (social proof stats now inside hero) ===== */
 
   /* ===== SECTION STYLE ===== */
   section { padding: 100px 0; }
@@ -370,12 +400,21 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
+    .hero-content-wrap { padding: 100px 20px 0; }
+    .hero-content { max-width: 100%; }
+    .hero h1 { font-size: clamp(2.2em, 8vw, 3em); }
+    .hero-bg::after {
+      background:
+        linear-gradient(180deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.5) 40%, rgba(10,10,10,0.3) 70%, rgba(10,10,10,0.6) 100%),
+        linear-gradient(90deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.3) 100%);
+    }
+    .hero-stats-inner { gap: 28px; }
+    .hero-stat-num { font-size: 1.5em; }
     .approach-grid { grid-template-columns: 1fr; gap: 30px; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .features-grid { grid-template-columns: 1fr; }
     .pricing-card { padding: 32px 24px; }
     section { padding: 60px 0; }
-    .hero { padding: 100px 20px 60px; }
     .sequence-strip img { height: 260px; min-width: 160px; }
   }
 
@@ -409,38 +448,38 @@
 <nav>
   <div class="container">
     <a href="#" class="nav-brand">The Bodyweight Gym</a>
-    <a href="#pricing" class="nav-cta">Get the Guide</a>
+    <a href="#pricing" class="nav-cta">Get Ebook + App</a>
   </div>
 </nav>
 
-<!-- HERO — ring muscle up support/top position -->
+<!-- HERO — full-bleed image, content overlaid left, stats bar bottom -->
 <section class="hero">
   <div class="hero-bg">
     <img src="assets/images/coverpage.png" alt="The Ring Muscle Up — The Bodyweight Gym">
   </div>
-  <div class="hero-content">
-    <div class="hero-eyebrow animate-in">The Complete Training Guide</div>
-    <h1 class="animate-in delay-1">The Ring<br><em>Muscle Up</em></h1>
-    <p class="hero-sub animate-in delay-2">Six levels of progressive training to take you from your first ring hang to a clean, strict muscle up. No kipping. No shortcuts. Just strength.</p>
-    <div class="hero-cta-group animate-in delay-3">
-      <a href="/api/create-checkout" class="btn-primary">Get Instant Access →</a>
-      <a href="#whats-inside" class="btn-outline">See What's Inside</a>
+
+  <div class="hero-content-wrap">
+    <div class="hero-content">
+      <div class="hero-eyebrow animate-in">The Bodyweight Gym presents</div>
+      <h1 class="animate-in delay-1">The Ring<br><em>Muscle Up</em><br>Complete Training<br>Guide</h1>
+      <p class="hero-sub animate-in delay-2">A structured, no-nonsense programme that takes you from zero experience to a strict ring muscle up. Six progressive levels. Real coaching. Real results.</p>
+      <p class="hero-offer animate-in delay-2">For <strong>$19</strong> you get the <strong>complete guide (PDF)</strong> plus lifetime access to the <strong>Muscle Up Tracker app</strong> — train with the programme and log your progress in one place.</p>
+      <div class="hero-cta-group animate-in delay-3">
+        <a href="/api/create-checkout" class="btn-primary">Get Ebook + Tracker App →</a>
+        <a href="#whats-inside" class="btn-outline">See the Programme</a>
+      </div>
     </div>
-    <p class="hero-price animate-in delay-4"><strong>$19</strong> — The complete guide <em>plus</em> the Muscle Up Tracker app. One purchase. Yours forever.</p>
+  </div>
+
+  <div class="hero-stats animate-in delay-4">
+    <div class="hero-stats-inner">
+      <div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">Progressive Levels</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">31</div><div class="hero-stat-label">Pages</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">14+</div><div class="hero-stat-label">Video Tutorials</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">Ebook + Tracker App</div></div>
+    </div>
   </div>
 </section>
-
-<!-- SOCIAL PROOF -->
-<div class="social-proof">
-  <div class="container">
-    <div class="proof-grid">
-      <div class="proof-stat"><div class="stat-number">6</div><div class="stat-label">Progressive Levels</div></div>
-      <div class="proof-stat"><div class="stat-number">14+</div><div class="stat-label">Video Demonstrations</div></div>
-      <div class="proof-stat"><div class="stat-number">31</div><div class="stat-label">Pages of Instruction</div></div>
-      <div class="proof-stat"><div class="stat-number">2</div><div class="stat-label">Guide + Tracker App</div></div>
-    </div>
-  </div>
-</div>
 
 <!-- WHAT'S INSIDE -->
 <section id="whats-inside">
