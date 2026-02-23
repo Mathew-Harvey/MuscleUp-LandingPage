@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Ring Muscle Up — The Complete Training Guide | The Bodyweight Gym</title>
+<title>The Ring Muscle Up — The Training Guide | The Bodyweight Gym</title>
 <meta name="description" content="Master the strict ring muscle up: 6-level PDF guide plus Muscle Up Tracker app for $19. From zero to hero — no kipping, no shortcuts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,17 +52,25 @@
   /* ===== NAV ===== */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 16px 0;
+    background: #373735;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 14px 0;
+    transition: background 0.35s ease;
+  }
+  nav.nav-scrolled {
+    background: rgba(10,10,10,0.94);
   }
   nav .container {
     display: flex; justify-content: space-between; align-items: center;
   }
   .nav-brand {
-    font-family: var(--heading); font-weight: 800; font-size: 0.85em;
-    text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-primary);
-    text-decoration: none;
+    display: flex; align-items: center;
+    text-decoration: none; line-height: 0;
+  }
+  .nav-brand img {
+    height: 40px; width: auto;
+    display: block;
   }
   .nav-cta {
     display: inline-flex; align-items: center; gap: 8px;
@@ -260,7 +268,7 @@
   .level-card:last-child { border-right: none; }
   .level-num {
     font-family: var(--heading); font-size: 3em; line-height: 1;
-    color: rgba(200,165,92,0.15); font-weight: 800; margin-bottom: 8px;
+    color: rgba(255,255,255,0.85); font-weight: 800; margin-bottom: 8px;
   }
   .level-card h4 { font-family: var(--heading); font-size: 0.95em; font-weight: 700; margin-bottom: 6px; }
   .level-card p { font-size: 0.82em; color: var(--text-muted); line-height: 1.5; }
@@ -332,7 +340,7 @@
   .callout-banner cite { font-style: normal; font-size: 0.85em; color: var(--text-muted); }
 
   /* ===== PRICING ===== */
-  .pricing-section { background: var(--bg-deep); }
+  .pricing-section { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .pricing-card {
     background: var(--bg-card); border: 2px solid var(--accent);
     border-radius: 16px; padding: 48px; max-width: 560px;
@@ -400,6 +408,8 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
+    .nav-brand img { height: 32px; }
+    .nav-cta { font-size: 0.72em; padding: 8px 16px; }
     .hero-content-wrap { padding: 100px 20px 0; }
     .hero-content { max-width: 100%; }
     .hero h1 { font-size: clamp(2.2em, 8vw, 3em); }
@@ -447,7 +457,7 @@
 <!-- NAV -->
 <nav>
   <div class="container">
-    <a href="#" class="nav-brand">The Bodyweight Gym</a>
+    <a href="#" class="nav-brand"><img src="assets/dark logo.png" alt="The Bodyweight Gym"></a>
     <a href="#pricing" class="nav-cta">Get Ebook + App</a>
   </div>
 </nav>
@@ -461,7 +471,7 @@
   <div class="hero-content-wrap">
     <div class="hero-content">
       <div class="hero-eyebrow animate-in">The Bodyweight Gym presents</div>
-      <h1 class="animate-in delay-1">The Ring<br><em>Muscle Up</em><br>Complete Training<br>Guide</h1>
+      <h1 class="animate-in delay-1">The Ring<br><em>Muscle Up</em><br>Training Guide</h1>
       <p class="hero-sub animate-in delay-2">A structured, no-nonsense programme that takes you from zero experience to a strict ring muscle up. Six progressive levels. Real coaching. Real results.</p>
       <p class="hero-offer animate-in delay-2">For <strong>$19</strong> you get the <strong>complete guide (PDF)</strong> plus lifetime access to the <strong>Muscle Up Tracker app</strong> — train with the programme and log your progress in one place.</p>
       <div class="hero-cta-group animate-in delay-3">
@@ -713,7 +723,7 @@
 <footer>
   <div class="container">
     <div class="footer-brand">The Bodyweight Gym</div>
-    <p>© 2025 The Bodyweight Gym. All rights reserved.</p>
+    <p>© 2026 The Bodyweight Gym. All rights reserved.</p>
     <p style="margin-top: 8px;"><a href="#" style="color: var(--text-muted); text-decoration: underline;">Terms</a> · <a href="#" style="color: var(--text-muted); text-decoration: underline;">Privacy</a> · <a href="#" style="color: var(--text-muted); text-decoration: underline;">Contact</a></p>
   </div>
 </footer>
@@ -728,6 +738,14 @@
       if (!wasOpen) item.classList.add('open');
     });
   });
+
+  // Nav transitions from brand brown to dark after scrolling
+  const navEl = document.querySelector('nav');
+  function updateNav() {
+    navEl.classList.toggle('nav-scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
 
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
