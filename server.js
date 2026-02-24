@@ -28,6 +28,8 @@ const staticDir = path.join(__dirname);
 
 app.get('/', (req, res) => res.sendFile(path.join(staticDir, 'index.html')));
 app.get('/index.html', (req, res) => res.sendFile(path.join(staticDir, 'index.html')));
+app.get('/about', (req, res) => res.sendFile(path.join(staticDir, 'about.html')));
+app.get('/about.html', (req, res) => res.sendFile(path.join(staticDir, 'about.html')));
 app.get('/thank-you.html', (req, res) => res.sendFile(path.join(staticDir, 'thank-you.html')));
 app.get('/ebook.html', (req, res) => res.sendFile(path.join(staticDir, 'ebook.html')));
 
