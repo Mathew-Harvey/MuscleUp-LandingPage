@@ -66,16 +66,6 @@
       color: var(--text-primary); margin-bottom: 0.5rem;
     }
     .sub { color: var(--text-secondary); margin-bottom: 2rem; }
-    .download-box {
-      margin-bottom: 2rem; padding: 1.25rem;
-      background: rgba(200,165,92,0.1); border: 1px solid rgba(200,165,92,0.2);
-      border-radius: 6px;
-    }
-    .download-box a {
-      font-family: var(--heading); font-weight: 700; color: var(--accent-glow);
-      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .download-box a:hover { text-decoration: underline; }
     .form-group { margin-bottom: 1.25rem; }
     .form-group label {
       display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-secondary);
@@ -121,30 +111,24 @@
 </head>
 <body>
   <nav>
-    <div>
-      <a href="index.html" class="nav-brand">The Bodyweight Gym</a>
-      <a href="index.html" class="nav-cta">Back to home</a>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center;">
+      <a href="/" class="nav-brand">The Bodyweight Gym</a>
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <span id="already-bought-wrap" style="display: none;"><a id="already-bought-link" href="#" style="color: var(--text-secondary); font-size: 0.9em; text-decoration: none;">Already bought? Open your Muscle Up Tracker →</a></span>
+        <a href="/" class="nav-cta">Back to home</a>
+      </div>
     </div>
   </nav>
 
   <main class="thank-you-page">
     <div class="thank-you-card">
       <h1>Thank you for your purchase</h1>
-      <p class="sub">Your guide and Progress Tracker access are ready.</p>
+      <p class="sub">Set up your Progress Tracker account below.</p>
 
       <div id="loading" class="sub">Verifying your payment…</div>
 
       <div id="content" style="display: none;">
-        <div class="download-box" style="margin-bottom: 1rem;">
-          <p style="margin:0 0 0.5rem 0; font-size:0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em;">Read online</p>
-          <a id="ebook-link" href="">Read your guide in the browser &rarr;</a>
-        </div>
-        <div class="download-box">
-          <p style="margin:0 0 0.5rem 0; font-size:0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em;">Your guide</p>
-          <a id="pdf-download" href="" download>Download the PDF guide &rarr;</a>
-        </div>
-
-        <p style="font-size:0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">To set up your <strong>Progress Tracker</strong> account and receive your login details by email, please confirm your details below.</p>
+        <p style="font-size:0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Enter your name and email. We'll email you a link to set your password and log in to the Muscle Up Tracker.</p>
 
         <form id="tracker-form">
           <div class="form-group">
@@ -159,47 +143,48 @@
         </form>
 
         <div id="form-message" class="message" role="alert"></div>
-        <p class="tracker-note">We'll email you a link to the Progress Tracker and temporary login details. On first login you'll be asked to set a new password.</p>
+        <p class="tracker-note">Check your email for a link to the Progress Tracker. You'll set a new password on first sign-in.</p>
       </div>
 
       <div id="error" style="display: none;" class="message error"></div>
     </div>
   </main>
 
+  <script src="/config.js"></script>
   <script>
     (function() {
-      const params = new URLSearchParams(window.location.search);
-      const sessionId = params.get('session_id');
-      const loadingEl = document.getElementById('loading');
-      const contentEl = document.getElementById('content');
-      const errorEl = document.getElementById('error');
+      var params = new URLSearchParams(window.location.search);
+      var sessionId = params.get('session_id');
+      var loadingEl = document.getElementById('loading');
+      var contentEl = document.getElementById('content');
+      var errorEl = document.getElementById('error');
+
+      if (window.TRACKER_APP_URL) {
+        var wrap = document.getElementById('already-bought-wrap');
+        var link = document.getElementById('already-bought-link');
+        if (wrap && link) { link.href = window.TRACKER_APP_URL; wrap.style.display = 'inline'; }
+      }
 
       if (!sessionId) {
         loadingEl.style.display = 'none';
         errorEl.style.display = 'block';
-        errorEl.textContent = 'Missing payment session. If you just paid, try refreshing the page. Otherwise return to the homepage to purchase.';
+        errorEl.textContent = 'Missing payment session. If you just paid, try refreshing. Otherwise return to the homepage to purchase.';
         return;
       }
 
+      // Verify session and prefill email (proxied to Muscle Up API by server)
       fetch('/api/verify-session?session_id=' + encodeURIComponent(sessionId))
-        .then(function(r) { return r.json().then(function(data) { return { ok: r.ok, data: data }; }); })
+        .then(function(r) { return r.json().then(function(data) { return { ok: r.ok, status: r.status, data: data }; }).catch(function() { return { ok: false, status: r.status, data: {} }; }); })
         .then(function(result) {
           loadingEl.style.display = 'none';
           if (!result.ok) {
             errorEl.style.display = 'block';
-            errorEl.textContent = result.data.error || 'Could not verify your payment. Please contact support.';
+            errorEl.textContent = (result.data && result.data.error) || 'Could not verify your payment. Please contact support.';
             return;
           }
-          var d = result.data;
           contentEl.style.display = 'block';
-          var ebookLink = document.getElementById('ebook-link');
-          ebookLink.href = window.location.pathname.replace(/thank-you\.html$/, 'ebook.html') + '?session_id=' + encodeURIComponent(sessionId);
-          var pdfLink = document.getElementById('pdf-download');
-          var url = d.downloadUrl || '/muscleup.pdf';
-          pdfLink.href = url.startsWith('http') ? url : (window.location.origin + (url.startsWith('/') ? url : '/' + url));
-          pdfLink.download = 'muscleup.pdf';
-          if (d.email) {
-            document.getElementById('email').value = d.email;
+          if (result.data && result.data.email) {
+            document.getElementById('email').value = result.data.email;
           }
         })
         .catch(function() {
@@ -243,15 +228,15 @@
               document.getElementById('tracker-form').style.display = 'none';
             } else {
               msg.className = 'message error';
-              msg.textContent = result.data.error || ('Request failed (' + result.status + '). Check your spam folder or try again.');
+              msg.textContent = (result.data && result.data.error) || ('Request failed (' + result.status + '). Check your spam folder or try again.');
             }
             msg.style.display = 'block';
           })
-          .catch(function(err) {
+          .catch(function() {
             btn.disabled = false;
             btn.textContent = 'Send me my tracker login';
             msg.className = 'message error';
-            msg.textContent = 'Request failed. Please try again.';
+            msg.textContent = 'Something went wrong. Please try again or contact support.';
             msg.style.display = 'block';
           });
       });

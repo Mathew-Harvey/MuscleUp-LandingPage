@@ -1,3 +1,5 @@
+# Set MUSCLEUP_API_URL (and optionally TRACKER_APP_URL) in the Render dashboard.
+# See .env.example and LANDING_PAGE_DEVELOPER_PROMPT.md.
 services:
   - type: web
     name: muscleup-landing
@@ -6,4 +8,4 @@ services:
     startCommand: npm start
     envVars:
       - key: NODE_VERSION
-        value: 18
+        value: "18"

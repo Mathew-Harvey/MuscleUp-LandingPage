@@ -454,14 +454,14 @@
 </style>
 </head>
 <body>
-
+<script src="/config.js"></script>
 <!-- NAV -->
 <nav>
   <div class="container">
     <a href="/" class="nav-brand"><img src="assets/dark logo.png" alt="The Bodyweight Gym"></a>
     <div style="display: flex; align-items: center; gap: 24px;">
       <a href="/about" style="color: var(--text); text-decoration: none; font-weight: 500;">About</a>
-      <a href="#pricing" class="nav-cta">Get Ebook + App</a>
+      <a href="#" id="nav-cta-link" class="nav-cta">Get Ebook + App</a>
     </div>
   </div>
 </nav>
@@ -479,7 +479,7 @@
       <p class="hero-sub animate-in delay-2">A structured, no-nonsense programme that takes you from zero experience to a strict ring muscle up. Six progressive levels. Real coaching. Real results.</p>
       <p class="hero-offer animate-in delay-2">For <strong>$19</strong> you get the <strong>complete guide (PDF)</strong> plus lifetime access to the <strong>Muscle Up Tracker app</strong> — train with the programme and log your progress in one place.</p>
       <div class="hero-cta-group animate-in delay-3">
-        <a href="/api/create-checkout" class="btn-primary">Get Ebook + Tracker App →</a>
+        <a href="#" class="btn-primary buy-cta">Get Ebook + Tracker App →</a>
         <a href="#whats-inside" class="btn-outline">See the Programme</a>
       </div>
     </div>
@@ -675,7 +675,7 @@
         <li>Benchmarking, loading/deloading, and 5-week block structure</li>
         <li>Lifetime access — download the guide as many times as you want; tracker included</li>
       </ul>
-      <a href="/api/create-checkout" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1.05em; padding: 18px;">Get Guide + Tracker — $19 →</a>
+      <a href="#" class="btn-primary buy-cta" style="width: 100%; justify-content: center; font-size: 1.05em; padding: 18px;">Get Guide + Tracker — $19 →</a>
       <p style="margin-top: 16px; font-size: 0.82em; color: var(--text-muted);">PDF guide + tracker app access. No recurring fees.</p>
     </div>
   </div>
@@ -735,7 +735,7 @@
   <div class="container text-center">
     <h2>Ready to <em>Start?</em></h2>
     <p class="section-lead" style="margin-left:auto; margin-right:auto;">The muscle up won't come to you. Go earn it.</p>
-    <a href="/api/create-checkout" class="btn-primary" style="font-size: 1.1em; padding: 18px 48px;">Get Guide + Tracker — $19 →</a>
+    <a href="#" class="btn-primary buy-cta" style="font-size: 1.1em; padding: 18px 48px;">Get Guide + Tracker — $19 →</a>
   </div>
 </section>
 
@@ -744,11 +744,26 @@
   <div class="container">
     <div class="footer-brand">The Bodyweight Gym</div>
     <p>© 2026 The Bodyweight Gym. All rights reserved.</p>
-    <p style="margin-top: 8px;"><a href="#" style="color: var(--text-muted); text-decoration: underline;">Terms</a> · <a href="#" style="color: var(--text-muted); text-decoration: underline;">Privacy</a> · <a href="#" style="color: var(--text-muted); text-decoration: underline;">Contact</a></p>
+    <p style="margin-top: 8px;" id="footer-links"><a href="#" style="color: var(--text-muted); text-decoration: underline;">Terms</a> · <a href="#" style="color: var(--text-muted); text-decoration: underline;">Privacy</a> · <a href="#" style="color: var(--text-muted); text-decoration: underline;">Contact</a></p>
+    <p style="margin-top: 8px; display: none;" id="already-bought-footer"><a href="#" id="already-bought-footer-link" style="color: var(--accent); text-decoration: underline;">Already bought? Open your Muscle Up Tracker →</a></p>
   </div>
 </footer>
 
 <script>
+  // Buy CTAs: point to API checkout (API redirects to Stripe)
+  (function() {
+    var base = typeof window.MUSCLEUP_API_URL !== 'undefined' ? window.MUSCLEUP_API_URL : '';
+    var checkoutUrl = base ? (base + '/api/stripe/create-checkout') : '#';
+    document.querySelectorAll('.buy-cta').forEach(function(a) { a.href = checkoutUrl; });
+    var navCta = document.getElementById('nav-cta-link');
+    if (navCta) navCta.href = checkoutUrl;
+    if (window.TRACKER_APP_URL) {
+      var footer = document.getElementById('already-bought-footer');
+      var link = document.getElementById('already-bought-footer-link');
+      if (footer && link) { link.href = window.TRACKER_APP_URL; footer.style.display = 'block'; }
+    }
+  })();
+
   // FAQ accordion
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
